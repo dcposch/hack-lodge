@@ -1,6 +1,6 @@
 
 const width = window.innerWidth
-const height = window.innerHeight - 120
+const height = window.innerHeight
 
 const elemBird = document.querySelector('#bird')
 const elemPipeU = document.querySelector('#pipe-upper')
@@ -32,7 +32,7 @@ function frame() {
     birdY += birdYVel
 
     pipeX -= 5
-    if (pipeX < 0) {
+    if (pipeX < -50) {
         pipeX = width - 100
         pipeY = Math.round(Math.random() * (height - 200))
     }
@@ -49,8 +49,14 @@ function frame() {
     elemPipeL.style.width = '40px'
     elemPipeL.style.height = (height - pipeY - 160) + 'px'
 
-    if (birdY < height && birdY > 0) {
-        window.requestAnimationFrame(frame)
+    if ((birdY + 100) > height || birdY < 0) {
+        console.log('hit top or bottom, die')
+        return
     }
+    if (pipeX < 100 && (birdY < (pipeY - 50) || birdY > (pipeY + 100))) {
+        console.log('hit pipe, die')
+        return
+    }
+    window.requestAnimationFrame(frame)
 }
 
