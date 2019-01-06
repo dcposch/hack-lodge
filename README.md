@@ -17,5 +17,6 @@ Insta for puppies. Learn React and stuff.
 
 ```
 cd workshops/puppygram
+npm install
 npx parcel serve index.html
 ```
