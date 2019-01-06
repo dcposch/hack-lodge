@@ -2,20 +2,18 @@
 
 ## Workshops
 
-Hello World for the technologies people are using.
+### 🐦Flappy Bird
 
-### Flappy Bird
-
-Front-end basics: HTML, Javascript, and some nice modern browser APIs. Flappy Bird in about 50 LOC (lines of code).
+Front-end basics: HTML, Javascript, and the browser. Flappy Bird in about 50 LOC (lines of code).
 
 ```
 cd workshops/flappy
 npx ecstatic
 ```
 
-### Puppygram
+### 🐶Puppygram
 
-Instagram for puppies. Learn React and stuff.
+Insta for puppies. Learn React and stuff.
 
 ```
 cd workshops/puppygram
