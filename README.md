@@ -2,7 +2,7 @@
 
 ## Workshops
 
-### 🐦Flappy Bird
+### 🐦 Flappy Bird
 
 Front-end basics: HTML, Javascript, and the browser. Flappy Bird in about 50 LOC (lines of code).
 
@@ -11,7 +11,7 @@ cd workshops/flappy
 npx ecstatic
 ```
 
-### 🐶Puppygram
+### 🐶 Puppygram
 
 Insta for puppies. Learn React and stuff.
 
