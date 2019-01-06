@@ -1,12 +1,12 @@
 
-const width = 800
-const height = 600
+const width = window.innerWidth
+const height = window.innerHeight - 120
 
 const divBird = document.querySelector('#bird')
 
 let pressedSpace = false
-let birdY = height / 2 
-
+let birdY = height / 2
+let birdYVel = 0
 
 // Listen for keystrokes
 window.addEventListener('keydown', function (e) {
@@ -19,16 +19,18 @@ window.addEventListener('keydown', function (e) {
 frame()
 
 function frame() {
-
     if (pressedSpace) {
-        birdY = 100
+        birdYVel = -10
         pressedSpace = false
     } else {
-        birdY += 1
+        birdYVel += 0.3
     }
+    birdY += birdYVel
 
     divBird.style.top = birdY + 'px'
 
-    window.requestAnimationFrame(frame)
+    if (birdY < height && birdY > 0) {
+        window.requestAnimationFrame(frame)
+    }
 }
 
