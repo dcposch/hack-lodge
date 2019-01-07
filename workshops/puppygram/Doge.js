@@ -13,15 +13,37 @@ export default function Doge(props) {
   );
 }
 
-function Comments(props) {
-  const { comments } = props;
-  // Equivalent: const comments = props.comments
+class Comments extends React.Component {
+  constructor() {
+    super();
 
-  return (
-    <div>
-      {comments.map((c, index) => (
-        <div key={index}>{c}</div>
-      ))}
-    </div>
-  );
+    this._textboxRef = React.createRef();
+
+    this._submitComment = () => {
+      const comment = this._textboxRef.current.value;
+      if (comment.trim() === "") {
+        return;
+      }
+      console.log("Submit comment: " + comment);
+      this.props.onComment(comment);
+      this._textboxRef.current.value = "";
+    };
+  }
+
+  render() {
+    const { comments } = this.props;
+    // Equivalent: const comments = props.comments
+
+    return (
+      <div>
+        <div>comments!</div>
+        {comments.map((c, index) => (
+          <div key={index}>{c}</div>
+        ))}
+
+        <textarea ref={this._textboxRef} />
+        <button onClick={this._submitComment}>wow</button>
+      </div>
+    );
+  }
 }

@@ -14,7 +14,9 @@ class App extends React.Component {
     // Bound function
     // Ugly syntax, but tldr; it ensures that `this` always refers
     // to an instance of App
-    this._onComment = (dogeId, comment) => {
+    this._onComment = comment => {
+      console.log(`Updating state, new comment: ${comment}`);
+
       const comments = this.state.comments;
 
       const newComments = [].concat(comments, [comment]);
@@ -40,9 +42,9 @@ function Header() {
 function Feed(props) {
   return (
     <div>
-      <Doge dogeId="1p" comments={props.comments} />
-      <Doge dogeId="2p" comments={[]} />
-      <Doge dogeId="3p" comments={[]} />
+      <Doge dogeId="1p" comments={props.comments} onComment={props.onComment} />
+      <Doge dogeId="2p" comments={[]} onComment={props.onComment} />
+      <Doge dogeId="3p" comments={[]} onComment={props.onComment} />
     </div>
   );
 }
